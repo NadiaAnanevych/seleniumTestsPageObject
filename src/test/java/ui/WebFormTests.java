@@ -19,11 +19,11 @@ class WebFormTests extends BaseTest{
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
         String currentUrl = webFormPage.getCurrentUrl();
-        WebElement title = webFormPage.getTitle();
+        String title = webFormPage.getTitle();
         String webFormUrl = webFormPage.getUrl();
 
         assertEquals(BASE_URL + webFormUrl, currentUrl);
-        assertEquals("Web form", title.getText());
+        assertEquals("Web form", title);
     }
 
 
@@ -33,9 +33,9 @@ class WebFormTests extends BaseTest{
         WebFormPage webFormPage = homePage.openWebFormPage();
         webFormPage.submitForm();
         Thread.sleep(2000);
-        WebElement title = webFormPage.getTitle();
+        String title = webFormPage.getTitle();
 
-        assertEquals("Form submitted", title.getText());
+        assertEquals("Form submitted", title);
     }
 
 

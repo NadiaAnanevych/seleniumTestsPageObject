@@ -6,16 +6,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class WebFormPage extends BasePage {
     private static final String WEB_FORM_URL = "web-form.html";
 
-    WebElement submitButton = driver.findElement(By.tagName("button"));
-    WebElement sendTextInput = driver.findElement(By.name("my-textarea"));
-    WebElement selectOptions = driver.findElement(By.className("form-select"));
-
-    By disableField = By.cssSelector("input[placeholder='Disabled input']");
+    //WebElement submitButton = driver.findElement(By.tagName("button"));
+    @FindBy(tagName = "button")
+    private WebElement submitButton;
+    //WebElement sendTextInput = driver.findElement(By.name("my-textarea"));
+    @FindBy(name = "my-textarea")
+    private WebElement sendTextInput;
+    //WebElement selectOptions = driver.findElement(By.className("form-select"));
+    @FindBy(className = "form-select")
+    private WebElement selectOptions;
+    //By disableField = By.cssSelector("input[placeholder='Disabled input']");
+    @FindBy(name = "my-disabled")
+    private WebElement disableField;
 
 
 
@@ -51,12 +59,12 @@ public class WebFormPage extends BasePage {
 
     @Step("send text to disabled field")
     public void sendToDisableInput(String textForDisabledInput) {
-        driver.findElement(disableField).sendKeys(textForDisabledInput);
+        disableField.sendKeys(textForDisabledInput);
     }
 
     @Step("get text from disabled field")
     public WebElement getDisableInput() {
-        return driver.findElement(disableField);
+        return disableField;
     }
 
 
