@@ -26,6 +26,9 @@ dependencies {
     testCompileOnly("org.projectlombok:lombok:1.18.38")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
 
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.3.1'
+    implementation 'commons-io:commons-io:2.16.1'
+
 }
 
 test {
